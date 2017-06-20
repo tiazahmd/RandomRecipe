@@ -1,11 +1,14 @@
 '''
-Random recipe generator version 1.0 by Imtiaz Ahmed
+Random recipe generator version 1.1 by Imtiaz Ahmed
 
 Version 1.0 Feature:
 1. Menu options: Generate a random recipe & Quit
 2. Database: Using Dictionary, 7 recipes
 3. Takes in user prompt and generates a random recipe
 4. Recipe names, ingredients and instructions are tagged with an ID. Random function generates the ID number and the recipe is generated based on the ID.
+
+Version 1.1 Update:
+1. Validation - Now rejects characters or symbol entries for menu choice
 
 '''
 
@@ -49,10 +52,13 @@ while userChoice != 2:
     print('Menu:')
     print('1. Generate a random recipe')
     print('2. Quit')
-    userChoice = int(input('Enter your choice and hit enter: '))
 
     # Validation
-    if userChoice < 1 or userChoice > 2:
+    try:
+        userChoice = int(input('Enter your choice and hit enter: '))
+        if userChoice < 1 or userChoice > 2:
+            print('Wrong choice. Please try again')
+    except ValueError:
         print('Wrong choice. Please try again')
     # End validation
 
